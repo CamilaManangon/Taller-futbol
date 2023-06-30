@@ -1,4 +1,2 @@
 Ecu
-Bra
-Per
 Arg

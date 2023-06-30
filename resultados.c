@@ -1,33 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
-int crearArchivo2(char puntajes[])
-{
-    FILE *fp;
-    fp = fopen(puntajes, "w+");
-    if (fp == NULL)
-    {
-        printf("No se puede crear el archivo\n");
-        return 0;
-    }else
-    {
-        printf("Se ha creado el archivo, %s\n",puntajes);
-        fclose(fp);
-    }   
-    return 1;
-}
 
 int comprobacionEquipo(char matrizEq[][50], int equipo, char eq[50]){
     int cont = 0;
     int comp = 0;
-    do{
+    //do{
         for(int i = 0; i < equipo; i++){
             comp = strcmp(matrizEq[i], eq);
             if(comp==0){
-                cont = cont + i;
+                cont = i;
             }
-    }
-    }while(comp==1);
+        }
+    //}while(comp==1);
 
     return cont;
 }
@@ -54,9 +39,9 @@ void puntosEquipos(char equipos[], char puntajes[], int equipo, char matrizEq[][
         return;
     }
     
-    while (!feof(Partidos))
+    while (fscanf(Partidos, "%s %s %d %d", eq1, eq2, &gol1, &gol2) == 4)
     {
-        fscanf(Partidos, "%s %s %d %d", eq1, eq2, &gol1, &gol2);
+        //fscanf(Partidos, "%s %s %d %d", eq1, eq2, &gol1, &gol2);
         if(gol1>gol2){
             puntos[comprobacionEquipo(matrizEq, equipo, eq1)] += 3;
         }else if(gol2>gol1){

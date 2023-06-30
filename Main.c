@@ -14,7 +14,6 @@ int main(void){
     printf("El torneo sera de %d equipos", equipo);
     crearArchivo(equipos);
     registroEquipos(equipos,equipo);
-    //leerArchivo(equipos);
 
     char matrizEq[equipo][50];
 
