@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int crearArchivo(char puntajes[])
+int crearArchivo2(char puntajes[])
 {
     FILE *fp;
     fp = fopen(puntajes, "w+");
@@ -32,17 +32,21 @@ int comprobacionEquipo(char matrizEq[][50], int equipo, char eq[50]){
     return cont;
 }
 
-void puntajes(char equipos[], char puntajes[], int equipo, char matrizEq[][50]){
+void puntosEquipos(char equipos[], char puntajes[], int equipo, char matrizEq[][50]){
 
     char eq1[50];
     char eq2[50];
     int gol1=0, gol2=0;
     int puntos[equipo];
 
-    FILE *Partidos, *Puntajes;
+    FILE *Partidos; 
+    FILE *Puntajes;
     Partidos = fopen("partidos.txt", "r+");
     Puntajes = fopen("puntajes.txt", "w+");
 
+    for (int i = 0; i < equipo; i++) {
+        puntos[i] = 0;
+    }
 
     if (Partidos == NULL || Puntajes == NULL)
     {
@@ -56,7 +60,7 @@ void puntajes(char equipos[], char puntajes[], int equipo, char matrizEq[][50]){
         if(gol1>gol2){
             puntos[comprobacionEquipo(matrizEq, equipo, eq1)] += 3;
         }else if(gol2>gol1){
-            puntajes[comprobacionEquipo(matrizEq, equipo, eq2)] += 3;
+            puntos[comprobacionEquipo(matrizEq, equipo, eq2)] += 3;
         }else{
             puntos[comprobacionEquipo(matrizEq, equipo, eq1)] += 1;
             puntos[comprobacionEquipo(matrizEq, equipo, eq2)] += 1;
@@ -65,9 +69,10 @@ void puntajes(char equipos[], char puntajes[], int equipo, char matrizEq[][50]){
     }
 
     for(int i = 0; i < equipo; i++){
-        fprintf(Puntajes, "%s %d\n", matrizEq[i], puntajes[i]);
+        fprintf(Puntajes, "%s %d\n", matrizEq[i], puntos[i]);
     }
 
-    
+    fclose(Partidos);
+    fclose(Puntajes);
 
 }

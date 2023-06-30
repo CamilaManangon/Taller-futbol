@@ -7,6 +7,7 @@
 int main(void){
     int neq=0, equipo=0, opc = 0;
     char equipos[20] = "equipos.txt";
+    char puntajes[20] = "puntajes.txt";
     printf("Ingrese un numero para crear el torneo");
     scanf("%d",&neq);
     equipo=pow(2,neq);
@@ -43,7 +44,11 @@ int main(void){
         break;
     }
 
-    puntajes(equipos, equipo, matrizEq);
+
+    printf("\n");
+    crearArchivo(puntajes);
+
+    puntosEquipos(equipos, puntajes, equipo, matrizEq);
 
 
     return 0;

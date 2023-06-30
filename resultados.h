@@ -1,2 +1,2 @@
-int comprobacionEquipo(char matrizEq[], int equipo, char eq);
-void puntajes(char equipos[], int equipo, char matrizEq[][50]);
+int comprobacionEquipo(char matrizEq[][50], int equipo, char eq[50]);
+void puntosEquipos(char equipos[], char puntajes[], int equipo, char matrizEq[][50]);
