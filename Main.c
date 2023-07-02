@@ -10,7 +10,7 @@ int main(void){
     char puntajes[20] = "puntajes.txt";
     printf("Ingrese un numero para crear el torneo: ");
     scanf("%d",&neq);
-    equipo=pow(2,neq);
+    equipo=pow(2,neq); //calcula el numero de equipos a participar en el torneo
     printf("\nEl torneo sera de %d equipos\n", equipo);
     crearArchivo(equipos);
     printf("\n");
@@ -22,11 +22,11 @@ int main(void){
 
     printf("\n");
 
-    
     printf("Como desea ingresar los resultados de los partidos:\n");
     printf("1. Manualmente\n2.Manera aleatorio\n");
+
     scanf("%d",&opc);
-    while(opc<1 && opc>2){
+    while(opc<1 || opc>2){
         printf("Opcion invalida\n");
         printf("Ingrese opcion nuevamente: ");
         scanf("%d",&opc);

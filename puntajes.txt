@@ -1,4 +1,4 @@
-Peru 11
-Brasil 9
-Argentina 8
-Ecuador 5
+Argentina 15
+Ecuador 10
+Brasil 6
+Colombia 4

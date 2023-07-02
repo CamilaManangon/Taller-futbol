@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
+//comprobar en que puesto esta el equipode la matriz de equipos
 int comprobacionEquipo(char matrizEq[][50], int equipo, char eq[50]){
     int cont = 0;
     int comp = 0;
@@ -51,7 +51,7 @@ void puntosEquipos(char equipos[], char puntajes[], int equipo, char matrizEq[][
             
         }
 
-        //ordenamiento
+        //ordenar los equipos de acuerdo a su puntaje
         for (int i = 0; i < equipo - 1; i++) {
             for (int j = i + 1; j < equipo; j++) {
                 if (puntos[i] < puntos[j]) {
@@ -77,6 +77,7 @@ void puntosEquipos(char equipos[], char puntajes[], int equipo, char matrizEq[][
     
 }
 
+//impresion de tablas
 void imprimirPartidos(){
     char eq1[50], eq2[50];
     int r1=0, r2=0;
@@ -114,14 +115,14 @@ void imprimirPuntos(){
     else
     {
         printf("PUNTAJES FINALES\n");
-        printf("--------------------------------------------\n");
-        printf("|        Equipo         |      Puntos     |\n");
+        printf("--------------------------------------\n");
+        printf("|      Equipo       |     Puntos     |\n");
         while (fscanf(fp, "%s %d", equipo, &p) == 2)
         {
-            printf("--------------------------------------------\n");
+            printf("--------------------------------------\n");
             printf("|    %s     |      %d     |\n",equipo, p);
         }
-        printf("--------------------------------------------\n");
+        printf("--------------------------------------\n");
         fclose(fp);
     }
 }

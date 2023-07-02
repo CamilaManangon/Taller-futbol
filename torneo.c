@@ -51,7 +51,7 @@ void generarRandom(char equipos[], int equipo, char matrizEq[][50]){
         {
             for (int j = 0; j < equipo; j++)
             {
-                if(i != j){
+                if(i != j){ //para comprobar que no muestre partido de un equipo contra si mismo
                 
                     gol1 = rand() % 7;
                     gol2 = rand() % 7;

@@ -16,6 +16,7 @@ int crearArchivo(char equipos[])
     return 1;
 }
 
+//creacion de equipos
 void registroEquipos(char equipos[], int equipo)
 {
     char nomeq[50];
@@ -57,6 +58,7 @@ void leerArchivo(char equipos[])
     }
 }
 
+//guardar los equipos en una matriz
 void matrizEquipos(char equipos[], char matrizEquipos[][50], int equipo){
     FILE *fp;
     fp = fopen("equipos.txt", "r+");
