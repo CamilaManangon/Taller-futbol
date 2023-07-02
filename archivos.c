@@ -11,7 +11,6 @@ int crearArchivo(char equipos[])
         return 0;
     }else
     {
-        printf("Se ha creado el archivo, %s\n",equipos);
         fclose(fp);
     }   
     return 1;
@@ -19,18 +18,24 @@ int crearArchivo(char equipos[])
 
 void registroEquipos(char equipos[], int equipo)
 {
+    char nomeq[50];
     FILE *fp;
     fp = fopen("equipos.txt","w+");
 
-    char nomeq[50];
+    if (fp == NULL)
+    {
+        printf("No se puede crear el archivo\n");
+        
+    }else
+    {
+        for (int i = 0; i < equipo; i++) {
+            printf("Ingrese el nombre del equipo %d: ", i + 1);
+            scanf("%s", nomeq);
+            fprintf(fp, "%s\n", nomeq);
+        }
+        fclose(fp);
 
-    for (int i = 0; i < equipo; i++) {
-        printf("Ingrese el nombre del equipo %d: ", i + 1);
-        scanf("%s", nomeq);
-        fprintf(fp, "%s\n", nomeq);
-    }
-    fclose(fp);
-
+    }   
 }
 
 void leerArchivo(char equipos[])

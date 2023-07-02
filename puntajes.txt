@@ -1,2 +1,4 @@
-Ecu 6
-Arg 0
+Peru 11
+Brasil 9
+Argentina 8
+Ecuador 5

@@ -1,2 +1,4 @@
-Ecu
-Arg
+Ecuador
+Argentina
+Brasil
+Peru

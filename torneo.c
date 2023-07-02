@@ -13,25 +13,26 @@ void generarPartidos(char equipos[], int equipo, char matrizEq[][50])
     {
         printf("No se puede abrir el archivo\n");
         return;
-    }
-
-    for (int i = 0; i < equipo; i++)
-    {
-        for (int j = 0; j < equipo; j++)
+    }else{
+        for (int i = 0; i < equipo; i++)
         {
-            if(i != j){
-                printf("%s vs %s\n",matrizEq[i], matrizEq[j]);
-                printf("Ingrese la cantidad de goles de %s: ", matrizEq[i]);
-                scanf("%d", &gol1);
-                printf("Ingrese la cantidad de goles de %s: ", matrizEq[j]);
-                scanf("%d", &gol2);
-                printf("\n");
-                fprintf(fp, "%s %s %d %d\n",matrizEq[i], matrizEq[j], gol1, gol2);
+            for (int j = 0; j < equipo; j++)
+            {
+                if(i != j){
+                    printf("%s vs %s\n",matrizEq[i], matrizEq[j]);
+                    printf("Ingrese la cantidad de goles de %s: ", matrizEq[i]);
+                    scanf("%d", &gol1);
+                    printf("Ingrese la cantidad de goles de %s: ", matrizEq[j]);
+                    scanf("%d", &gol2);
+                    printf("\n");
+                    fprintf(fp, "%s %s %d %d\n",matrizEq[i], matrizEq[j], gol1, gol2);
+                }
             }
         }
+
+        fclose(fp);
     }
 
-    fclose(fp);
 }
 
 void generarRandom(char equipos[], int equipo, char matrizEq[][50]){
@@ -43,23 +44,22 @@ void generarRandom(char equipos[], int equipo, char matrizEq[][50]){
     {
         printf("No se puede abrir el archivo\n");
         return;
-    }
+    }else{
+        srand(time(NULL)); // time(NULL) devuelve la hora del sistema
 
-    srand(time(NULL)); // time(NULL) devuelve la hora del sistema
-
-    for (int i = 0; i < equipo; i++)
-    {
-        for (int j = 0; j < equipo; j++)
+        for (int i = 0; i < equipo; i++)
         {
-            if(i != j){
-            
-                gol1 = rand() % 7;
-                gol2 = rand() % 7;
-                printf("%s vs %s: %d - %d\n\n",matrizEq[i], matrizEq[j],gol1, gol2);
-                fprintf(fp, "%s %s %d %d\n",matrizEq[i], matrizEq[j], gol1, gol2);
+            for (int j = 0; j < equipo; j++)
+            {
+                if(i != j){
+                
+                    gol1 = rand() % 7;
+                    gol2 = rand() % 7;
+                    fprintf(fp, "%s %s %d %d\n",matrizEq[i], matrizEq[j], gol1, gol2);
+                }
             }
         }
+        fclose(fp);
     }
-    fclose(fp);
 }
 
