@@ -105,6 +105,7 @@ void imprimirPartidos(){
 
 void imprimirPuntos(){
     char equipo[50];
+    char ganador[50];
     int p;
     FILE *fp;
     fp = fopen("puntajes.txt", "r+");
@@ -123,6 +124,8 @@ void imprimirPuntos(){
             printf("|    %s     |      %d     |\n",equipo, p);
         }
         printf("--------------------------------------\n");
+
         fclose(fp);
     }
+
 }
